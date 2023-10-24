@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<script type="text/javascript" src="https://livejs.com/live.js"></script>
+	<meta charset="utf-8">
+	<title>Rakin Ishraq</title>
+	<meta name="description" content="A.I	|	Games	|	Apps	|	Websites">
+	<meta name="author" content="Rakin Ishraq">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;500&family=Roboto:wght@300&display=swap" rel="stylesheet"> 
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="icon" type="image/png" href="images/favicon.png">
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head>
+
+<body>
+	<video autoplay muted loop id="cloudBG"><source src="clouds_blurred.mp4" type="video/mp4"></video>
+	<audio id="player"><source src="music.mp3" type="audio/mpeg"></audio>
+	<img id="note" onclick="toggle_music()" src="images/catalin-fertu.png">
+	<img id="logo" onclick="reset()" src="images/signature.png">
+	<div id="tagline" class="">
+		<a id="AI" onclick="tagclick(0)">A.I.</a>
+		<a id="Games" onclick="tagclick(1)">Games</a>
+		<a id="Apps" onclick="tagclick(2)">Apps</a>
+		<a id="Websites" onclick="tagclick(3)">Websites</a>
+	</div>
+	<div id="content">
+		<div><b>Lia</b>	AI secretary</div>
+		<div><b>Prisma</b>	Color-match your setup</div>
+		<div><b>Aura</b>	No-mouse Windows</div>
+		<div><b>Deja</b>	One click, multiple apps</div>
+		<div><b>Deviate VR</b>	3D animation studio</div>
+		<div><b>Jenna</b>	Automate video creation</div>
+	</div>
+</body>
+
+<script type="text/javascript" src="script.js"></script>
+</html>
