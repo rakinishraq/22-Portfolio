@@ -1,5 +1,8 @@
 var interval;
+var prevIndex = null;
 var off = true;
+var selected = false;
+var animating = false;
 
 $player = new Audio("music.mp3");
 $player.volume = 0.1;
@@ -33,23 +36,55 @@ function fade(target) {
 }
 
 async function tagclick(n) {
-	var tags = $("#tagline")
-	for (var i = 0; i < tags.children().length; i++) {
-		if (i != n) {tags.children()[i].classList = ""}
-	}
-	tags.children()[n].classList = "selected";
+	if (animating) return;
+	if (!selected || prevIndex == null) prevIndex = n;
+
+	var tags = $("#tagline");
+	tags.children().removeClass();
+	tags.children().eq(n).addClass("selected");
 	tags.addClass("selected");
 	$("#logo").addClass("selected");
 	await sleep(300);
 	$("#content").addClass("selected");
+	selected = true;
+
+	if (n != prevIndex) {
+    	await swoosh(n > prevIndex);
+    	prevIndex = n;
+	}
 }
 
 async function reset() {
+	if (animating || !selected) return;
+
+	prevIndex = null;
 	$("#content").removeClass("selected");
-	var tags = $("#tagline")
-	for (var i = 0; i < tags.children().length; i++) {
-		tags.children()[i].classList = "";
-	}
-	tags.removeClass("selected");
+	$("#tagline").children().removeClass();
+	$("#tagline").removeClass("selected");
 	$("#logo").removeClass("selected");
+	selected = false;
+	animating = true;
+	await sleep(1000);
+	animating = false;
+}
+
+async function swoosh(dir_right=true) {
+	if (animating) return;
+
+	animating = true;
+	var content = $("#content");
+
+	var order = ["left", "right"];
+	if (!dir_right) order.reverse();
+
+	var prefix = content.attr("class")+' ';
+	content.attr("class", prefix + "animate "+order.pop());
+	await sleep(300);
+	content.attr("class", prefix + order.pop());
+	await sleep(100);
+	content.attr("class", prefix + "animate reset");
+	animating = false;
+	await sleep(300);
+	content.attr("class", prefix);
+	await sleep(300);
 }

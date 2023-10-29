@@ -17,7 +17,7 @@ body {
 	transition: opacity 1s;
 	opacity: 0.2;
 }
-#note:hover {cursor: pointer}
+#note:hover, #logo:hover {cursor: pointer}
 #logo {
 	width: 60vh;
 	position: absolute;
@@ -100,3 +100,9 @@ body {
 	color: white;
 	background-color: rgba(84, 63, 81, 1);
 }
+
+
+#content.right { transform: translate(50vw, -50%) } 
+#content.left { transform: translate(calc(-50vw - 100%), -50%) }
+#content.reset { transform: translate(-50%, -50%) }
+#content.animate { transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1) }
