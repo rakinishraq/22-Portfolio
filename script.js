@@ -49,7 +49,7 @@ async function tagclick(n) {
 	selected = true;
 
 	if (n != prevIndex) {
-    	await swoosh(n > prevIndex);
+    	await swoosh(n < prevIndex);
     	prevIndex = n;
 	}
 }
