@@ -4,7 +4,7 @@ var off = true;
 var selected = false;
 var animating = false;
 
-var swoosh_length = 600;
+var swoosh_length = 600; // timing
 
 $player = new Audio("music.mp3");
 $player.volume = 0.1;
@@ -66,7 +66,7 @@ async function reset() {
 	$("#logo").removeClass("selected");
 	selected = false;
 	animating = true;
-	await sleep(1300);
+	await sleep(1300); // timing?
 	animating = false;
 }
 

@@ -105,4 +105,4 @@ body {
 #content.right { transform: translate(50vw, -50%) } 
 #content.left { transform: translate(calc(-50vw - 100%), -50%) }
 #content.reset { transform: translate(-50%, -50%) }
-#content.animate { transition: transform 0.6s cubic-bezier(0.5, 1, 0.5, 1) }
+#content.animate { transition: transform 0.6s cubic-bezier(0.5, 1, 0.5, 1) } /* timing */
