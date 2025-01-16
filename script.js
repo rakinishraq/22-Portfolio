@@ -4,6 +4,8 @@ var off = true;
 var selected = false;
 var animating = false;
 
+var swoosh_length = 600;
+
 $player = new Audio("music.mp3");
 $player.volume = 0.1;
 $player.loop = true;
@@ -64,7 +66,7 @@ async function reset() {
 	$("#logo").removeClass("selected");
 	selected = false;
 	animating = true;
-	await sleep(1000);
+	await sleep(1300);
 	animating = false;
 }
 
@@ -79,12 +81,12 @@ async function swoosh(dir_right=true) {
 
 	var prefix = content.attr("class")+' ';
 	content.attr("class", prefix + "animate "+order.pop());
-	await sleep(300);
+	await sleep(swoosh_length);
 	content.attr("class", prefix + order.pop());
 	await sleep(100);
 	content.attr("class", prefix + "animate reset");
 	animating = false;
-	await sleep(300);
+	await sleep(swoosh_length);
 	content.attr("class", prefix);
-	await sleep(300);
+	await sleep(swoosh_length);
 }
